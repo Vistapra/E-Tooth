@@ -5,7 +5,8 @@
         {{-- Header dan bar pencarian --}}
         <div class="m-header">
             <nav>
-                <a href="{{route('front.konsultasi')}}"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">E-Tooth</span> </a>
+                <a href="{{ route('front.riwayat') }}"><i class="fas fa-arrow-left"></i> <span
+                        class="messenger-headTitle">E-Tooth</span> </a>
                 {{-- tombol header --}}
                 <nav class="m-header-right">
                     <a href="#"><i class="fas fa-cog settings-btn"></i></a>
@@ -22,29 +23,24 @@
         </div>
         {{-- tab dan daftar --}}
         <div class="m-body contacts-container">
-           {{-- Daftar [Pengguna/Grup] --}}
-           {{-- ---------------- [ Tab Pengguna ] ---------------- --}}
-           <div class="show messenger-tab users-tab app-scroll" data-view="users">
-               {{-- Favorit --}}
-               <div class="favorites-section">
-                <p class="messenger-title"><span>Favorit</span></p>
-                <div class="messenger-favorites app-scroll-hidden"></div>
-               </div>
-               {{-- Pesan yang Disimpan --}}
-               <p class="messenger-title"><span>Ruang Anda</span></p>
-               {!! view('Chatify::layouts.listItem', ['get' => 'saved']) !!}
-               {{-- Kontak --}}
-               <p class="messenger-title"><span>Semua Pesan</span></p>
-               <div class="listOfContacts" style="width: 100%;height: calc(100% - 272px);position: relative;"></div>
-           </div>
-             {{-- ---------------- [ Tab Pencarian ] ---------------- --}}
-           <div class="messenger-tab search-tab app-scroll" data-view="search">
+            {{-- Daftar [Pengguna/Grup] --}}
+            {{-- ---------------- [ Tab Pengguna ] ---------------- --}}
+            <div class="show messenger-tab users-tab app-scroll" data-view="users">
+                {{-- Favorit --}}
+                <div class="favorites-section">
+                    <p class="messenger-title"><span>Favorit</span></p>
+                    <div class="messenger-favorites app-scroll-hidden"></div>
+                </div>
+                <div class="listOfContacts" style="width: 100%;height: calc(100% - 272px);position: relative;"></div>
+            </div>
+            {{-- ---------------- [ Tab Pencarian ] ---------------- --}}
+            <div class="messenger-tab search-tab app-scroll" data-view="search">
                 {{-- item --}}
                 <p class="messenger-title"><span>Pencarian</span></p>
                 <div class="search-records">
                     <p class="message-hint center-el"><span>Ketik untuk mencari..</span></p>
                 </div>
-             </div>
+            </div>
         </div>
     </div>
 
@@ -55,8 +51,9 @@
             <nav class="chatify-d-flex chatify-justify-content-between chatify-align-items-center">
                 {{-- tombol kembali header, avatar dan nama pengguna --}}
                 <div class="chatify-d-flex chatify-justify-content-between chatify-align-items-center">
-                    <a href="{{ route('front.konsultasi')}}" class="show-listView"><i class="fas fa-arrow-left"></i></a>
-                    <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;">
+                    <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
+                    <div class="avatar av-s header-avatar"
+                        style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;">
                     </div>
                     <a href="#" class="user-name">{{ Auth::user()->name }}</a>
                 </div>
@@ -64,7 +61,6 @@
                 <nav class="m-header-right">
                     <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
                     <a href="/"><i class="fas fa-home"></i></a>
-                    <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
             </nav>
             {{-- Koneksi internet --}}
@@ -78,7 +74,8 @@
         {{-- Area Pesan --}}
         <div class="m-body messages-container app-scroll">
             <div class="messages">
-                <p class="message-hint center-el"><span>Selamat Datang DiE-Tooth | Konsultasi Online Dengan Dokter</span></p>
+                <p class="message-hint center-el"><span>Selamat Datang DiE-Tooth | Konsultasi Online Dengan
+                        Dokter</span></p>
             </div>
             {{-- Indikator Mengetik --}}
             <div class="typing-indicator">
@@ -98,14 +95,13 @@
         @include('Chatify::layouts.sendForm')
     </div>
     {{-- ---------------------- Sisi Info ---------------------- --}}
-    <div class="messenger-infoView app-scroll">
-        {{-- aksi nav --}}
+    {{-- <div class="messenger-infoView app-scroll">
         <nav>
             <p>Detail Pengguna</p>
             <a href="#"><i class="fas fa-times"></i></a>
         </nav>
         {!! view('Chatify::layouts.info')->render() !!}
-    </div>
+    </div> --}}
 </div>
 
 @include('Chatify::layouts.modals')

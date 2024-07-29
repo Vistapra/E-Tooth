@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | E-Tooth</title>
-    <link rel="shortcut icon" href="{{ asset('assets/svgs/logo.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/svgs/Logo_depan.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,7 +17,7 @@
             @csrf
             <div class="flex flex-col gap-6">
                 <a href="{{ route('front.index') }}">
-                    <img src="{{ asset('assets/svgs/logo.svg') }}" alt="E-Tooth Logo" class="w-auto h-auto">
+                    <img src="{{ asset('assets/svgs/Logo_depan.svg') }}" alt="E-Tooth Logo" class="w-auto h-auto">
                 </a>
 
                 <!-- Session Status -->

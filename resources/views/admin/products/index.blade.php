@@ -71,7 +71,7 @@
                     </td>
                     <td class="px-6 py-4 whitespace-wrap text-sm text-black dark:text-white">
                         <div class="about-container">
-                            {{ $product->about }}
+                            {!! $product->about !!}
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-black dark:text-white">

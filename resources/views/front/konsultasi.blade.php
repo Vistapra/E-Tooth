@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konsultasi Dokter - E-Tooth</title>
-    <link rel="shortcut icon" href="{{ asset('assets/svgs/logo.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/svgs/Logo_depan.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -38,14 +38,16 @@
         </div>
     </nav>
 
-    <section class="wrapper flex flex-col gap-2.5 items-center justify-center">
-    <p class="text-3xl font-bold text-center text-[#fd915a]">Konsultasi</p>
-    <form action="{{ route('front.search') }}" method="GET" id="searchForm" class="w-full">
-        <input type="text" name="keyword" id="searchDoctor"
-            class="block w-full py-3.5 pl-4 pr-10 rounded-full font-semibold placeholder:text-grey placeholder:font-normal text-black text-base bg-no-repeat bg-[calc(100%-16px)] focus:ring-2 focus:ring-primary focus:outline-none focus:border-none transition-all"
-            placeholder="Cari Dokter...">
-    </form>
-</section>
+    <section class="wrapper flex flex-col gap-2.5 items-center justify-center p-4 md:p-8">
+        <p class="text-5xl md:text-6xl font-bold text-center bg-gradient-to-r from-[#8AD1C1] to-[#68B4E5] bg-clip-text text-transparent">
+            Konsultasi
+        </p>
+        <form action="{{ route('front.search') }}" method="GET" id="searchForm" class="w-full max-w-lg">
+            <input type="text" name="keyword" id="searchProduct"
+                class="block w-full py-3.5 pl-4 pr-10 rounded-full font-semibold placeholder:text-grey placeholder:font-normal text-black text-base bg-no-repeat bg-[calc(100%-16px)] focus:ring-2 focus:ring-primary focus:outline-none focus:border-none transition-all"
+                placeholder="Cari Dokter...">
+        </form>
+    </section>        
 
 
     <section class="wrapper flex flex-col gap-2.5 pb-40">

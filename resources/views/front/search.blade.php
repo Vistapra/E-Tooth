@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Edukasi | E-Tooth</title>
-    <link rel="shortcut icon" href="{{ asset('assets/svgs/logo.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/svgs/Logo_depan.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +18,7 @@
             <img src="{{ asset('assets/svgs/ic-arrow-left.svg') }}" class="size-5" alt="Back">
         </a>
         <p class="absolute text-base font-semibold translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2">
-            Search Result
+            Hasil Pencarian
         </p>
     </section>
 
@@ -27,7 +27,7 @@
         <form action="{{ route('front.search') }}" method="GET" id="searchForm" class="w-full">
             <input type="text" name="keyword" id="searchProduct"
                 class="block w-full py-3.5 pl-4 pr-10 rounded-full font-semibold placeholder:text-grey placeholder:font-normal text-black text-base bg-no-repeat bg-[calc(100%-16px)] bg-[url('{{ asset('assets/svgs/ic-search.svg') }}')] focus:ring-2 focus:ring-primary focus:outline-none focus:border-none transition-all"
-                placeholder="Search by product name or doctor name" value="{{ request('keyword') }}">
+                placeholder="Cari Edukasi..." value="{{ request('keyword') }}">
         </form>
     </section>
 
@@ -39,8 +39,8 @@
             <!-- Product Results -->
             @forelse($products as $product)
                 <div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center container-relative">
-                    <img src="{{ Storage::url($product->photo) }}" class="w-full max-w-[70px] max-h-[70px] object-contain"
-                        alt="{{ $product->name }}">
+                    <img src="{{ Storage::url($product->photo) }}"
+                        class="w-full max-w-[70px] max-h-[70px] object-contain" alt="{{ $product->name }}">
                     <div class="flex flex-wrap items-center justify-between w-full gap-1">
                         <div class="flex flex-col gap-1">
                             <a href="{{ route('front.product.details', $product->slug) }}"
@@ -65,8 +65,8 @@
         <div class="flex flex-col gap-4 mt-6">
             @forelse($doctors as $doctor)
                 <div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center container-relative">
-                    <img src="{{ Storage::url($doctor->photo) }}" class="w-full max-w-[70px] max-h-[70px] object-contain"
-                        alt="{{ $doctor->name }}">
+                    <img src="{{ Storage::url($doctor->photo) }}"
+                        class="w-full max-w-[70px] max-h-[70px] object-contain" alt="{{ $doctor->name }}">
                     <div class="flex flex-wrap items-center justify-between w-full gap-1">
                         <div class="flex flex-col gap-1">
                             <a href="{{ url('chatify', $doctor->user_id) }}"
@@ -78,9 +78,9 @@
                             </p>
                         </div>
                         <div class="flex">
-                        <img src="{{ asset('assets/svgs/ic-consultation.svg') }}" class="size-[35px]"
-                            alt="Icon Konsultasi">
-                    </div>
+                            <img src="{{ asset('assets/svgs/ic-consultation.svg') }}" class="size-[35px]"
+                                alt="Icon Konsultasi">
+                        </div>
                     </div>
                 </div>
             @empty

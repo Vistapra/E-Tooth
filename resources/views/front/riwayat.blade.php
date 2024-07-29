@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Konsultasi - E-Tooth</title>
-    <link rel="shortcut icon" href="{{ asset('assets/svgs/logo.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/svgs/Logo_depan.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -41,34 +41,42 @@
         </div>
     </nav>
 
-    <section class="wrapper flex flex-col gap-2.5 items-center justify-center">
-        <p style="font-size: 3rem; font-weight: bold; text-align: center; color: #fd915a;">Riwayat</p>
-        <form action="{{ route('front.search') }}" method="GET" id="searchForm" class="w-full">
+    <section class="wrapper flex flex-col gap-2.5 items-center justify-center p-4 md:p-8">
+        <p
+            class="text-5xl md:text-6xl font-bold text-center bg-gradient-to-r from-[#8AD1C1] to-[#68B4E5] bg-clip-text text-transparent">
+            Riwayat
+        </p>
+        <form action="{{ route('front.search') }}" method="GET" id="searchForm" class="w-full max-w-lg">
             <input type="text" name="keyword" id="searchProduct"
                 class="block w-full py-3.5 pl-4 pr-10 rounded-full font-semibold placeholder:text-grey placeholder:font-normal text-black text-base bg-no-repeat bg-[calc(100%-16px)] focus:ring-2 focus:ring-primary focus:outline-none focus:border-none transition-all"
                 placeholder="Riwayat Konsultasi...">
         </form>
     </section>
 
+
+
     <section class="wrapper flex flex-col gap-2.5 pb-40 mt-10">
         <div class="flex flex-col gap-4">
             @forelse ($users as $d)
-            <div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center relative">
-                <img src="{{ Storage::url($d->doctor_photo ?? ($d->user_avatar ?? 'avatar.png')) }}" class="w-full max-w-[70px] max-h-[70px] object-contain" alt="{{ $d->name }}">
-                <div class="flex flex-wrap items-center justify-between w-full gap-1">
-                    <div class="flex flex-col gap-1">
-                        <a href="{{ url('chatify', $d->id) }}" class="text-base font-semibold stretched-link whitespace-nowrap w-[150px] truncate">{{ $d->name }}</a>
-                        <p class="text-sm text-grey">
-                        {{ $d->latestMessage ? Str::words($d->latestMessage->body, 3, '..>') : 'Tidak ada pesan' }}
-                    </p>
-                    </div>
-                    <div class="flex">
-                        <img src="{{ asset('assets/svgs/ic-note.svg') }}" class="w-[35px] h-[35px]" alt="Chat Icon">
+                <div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center relative">
+                    <img src="{{ Storage::url($d->doctor_photo ?? ($d->user_avatar ?? 'avatar.png')) }}"
+                        class="w-full max-w-[70px] max-h-[70px] object-contain" alt="{{ $d->name }}">
+                    <div class="flex flex-wrap items-center justify-between w-full gap-1">
+                        <div class="flex flex-col gap-1">
+                            <a href="{{ url('chatify', $d->id) }}"
+                                class="text-base font-semibold stretched-link whitespace-nowrap w-[230px] truncate">{{ $d->name }}</a>
+                            <p class="text-sm text-grey">
+                                {{ $d->latestMessage ? Str::words($d->latestMessage->body, 3, '...') : 'Tidak ada pesan' }}
+                            </p>
+                        </div>
+                        <div class="flex">
+                            <img src="{{ asset('assets/svgs/ic-note.svg') }}" class="w-[35px] h-[35px]"
+                                alt="Chat Icon">
+                        </div>
                     </div>
                 </div>
-            </div>
             @empty
-            <p class="text-center text-grey">Belum ada riwayat</p>
+                <p class="text-center text-grey">Belum ada riwayat</p>
             @endforelse
         </div>
     </section>

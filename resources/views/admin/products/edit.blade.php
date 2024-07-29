@@ -9,11 +9,11 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 @if($errors->any())
-                @foreach ($errors->all() as $error)
-                <div class="w-full rounded-3xl bg-red-500 text-white mb-2 p-2">
-                    {{ $error }}
-                </div>
-                @endforeach
+                    @foreach ($errors->all() as $error)
+                        <div class="w-full rounded-3xl bg-red-500 text-white mb-2 p-2">
+                            {{ $error }}
+                        </div>
+                    @endforeach
                 @endif
 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -35,10 +35,10 @@
                             <x-input-label for="category_id" :value="__('Kategori')" />
                             <select name="category_id" id="category_id" class="block mt-1 w-full text-black" required>
                                 @foreach($categories as $category)
-                                <option value="{{ $category->id }}" class="text-black"
-                                    {{ $product->category_id == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
-                                </option>
+                                    <option value="{{ $category->id }}" class="text-black"
+                                        {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
                                 @endforeach
                             </select>
                             <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
@@ -56,8 +56,9 @@
                         <!-- About -->
                         <div class="mt-4">
                             <x-input-label for="about" :value="__('Deskripsi Produk')" />
-                            <textarea id="about" name="about" class="block mt-1 w-full text-black" rows="5"
-                                required>{{ old('about', $product->about) }}</textarea>
+                            <div id="editor" class="border border-slate-300 rounded-xl w-full text-black"
+                                required>{{ old('about', $product->about) }}</div>
+                            <input type="hidden" name="about" id="about" value="{{ old('about', $product->about) }}" />
                             <x-input-error :messages="$errors->get('about')" class="mt-2" />
                         </div>
 
@@ -71,4 +72,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                editor.model.document.on('change:data', () => {
+                    document.querySelector('#about').value = editor.getData();
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </x-app-layout>
