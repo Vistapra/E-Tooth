@@ -1,4 +1,4 @@
-#E-Tooth
+E-Tooth
 Aplikasi E-Tooth adalah sebuah platform berbasis web yang dikembangkan menggunakan Laravel, yang menyediakan solusi komprehensif untuk perawatan dan kesehatan gigi. Aplikasi ini memiliki beberapa fitur utama yang dirancang untuk meningkatkan pengalaman pengguna dalam mengakses informasi dan layanan kesehatan gigi, antara lain:
 Fitur Edukasi:
 Menyediakan berbagai artikel, video, dan konten edukatif mengenai kesehatan gigi.
