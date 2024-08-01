@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,7 +20,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
     ];
 
     /**
@@ -45,19 +43,6 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-    public function isOwner()
-    {
-        return $this->role === 'owner';
-    }
-
-    public function isDoctor()
-    {
-        return $this->role === 'doctor';
-    }
-    public function isBuyer()
-    {
-        return $this->role === 'buyer';
     }
 
     public function messages()

@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Chatify\ChatifyServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Ladumor\LaravelPwa\PWAServiceProvider::class,
 
 
     ],
@@ -213,7 +214,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'Chatify' => Chatify\Facades\ChatifyMessenger::class
+        'Chatify' => Chatify\Facades\ChatifyMessenger::class,
+        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
     ])->toArray(),
 
 ];
